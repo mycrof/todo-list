@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $('.result').html(printT_1());
+    $('.result6').html(printT_6());
 
 });
 
