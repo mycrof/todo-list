@@ -9,3 +9,4 @@ Help.
 
 ¿Como se hace lo que esta pidiendo el docente a cargo?
 
+Pablo ayudame tengo los $500
