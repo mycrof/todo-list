@@ -5,4 +5,7 @@ A TODO list project.
 
 y como se usa esto?
 
-I nid Jelp
+Help.
+
+¿Como se hace lo que esta pidiendo el docente a cargo?
+
