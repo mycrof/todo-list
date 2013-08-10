@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('.result1').html(printT_2());
 	$('.result3').html(printT_3());
     $('.result4').html(printT_4());
+	$('.result2').html(printT_2());
 
 });
 
@@ -22,3 +23,8 @@ function printT_3(){
 function printT_4(){
     return " 4X1=4 - 4X2=8 - 4X3=12 - 4X4=16 - 4X5=20 - 4X6=24 - 4X7=28 - 4x8=32 - 4x9=36 - 4x10=40";
 }
+
+printT_2 = function(){
+    return " 2 x 1 = 2 2 x 2 = 4 2 x 3 = 6 2 x 4 = 8 2 x 5 = 10 2 x 6 = 12 2 x 7 = 14 2 x 8 = 16 2 x 9 = 18 2 x 10 = 20 !!";
+}
+
