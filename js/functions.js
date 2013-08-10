@@ -9,7 +9,7 @@ function printT_6(){
    
 var num, i;
 
-num = 6;
+num = 3;
   for (i=1;i<=10;i++)
 {
 
