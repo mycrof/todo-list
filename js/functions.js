@@ -11,6 +11,6 @@ function printT_6(){
 }
 
 printT_2 = function(){
-return "Hola Mundo 2!!";
+return "Hola Mundo !!";
 }
 
