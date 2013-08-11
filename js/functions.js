@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('.result6').html(printT_6());
-	$('.result1').html(printT_2());
+	$('.result1').html(printT_1());
 	$('.result3').html(printT_3());
     $('.result4').html(printT_4());
 	$('.result2').html(printT_2());
@@ -28,3 +28,6 @@ printT_2 = function(){
     return " 2 x 1 = 2 2 x 2 = 4 2 x 3 = 6 2 x 4 = 8 2 x 5 = 10 2 x 6 = 12 2 x 7 = 14 2 x 8 = 16 2 x 9 = 18 2 x 10 = 20 !!";
 }
 
+printT_1 = function(){
+return "1X1=1 - 1X2=2 - 1X3=3 - 1X4=4 - 1X5=5 - 1X6=6 - 1X7=7 - 1x8=8 - 1x9=9 - 1x10=10";
+}
