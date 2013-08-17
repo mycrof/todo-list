@@ -1,0 +1,1 @@
+SELECT t.tar_nombre,t.tar_gru_codigo, t.tar_tip_codigo, t.tar_lis_codigo,e.est_nombre FROM  estados e, tareas t WHERE e.est_codigo=t.tar_est_codigo ;
