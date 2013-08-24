@@ -1,0 +1,5 @@
+insert into tareas tar_codigo,tar_nombre,tar_gru_codigo,tar_tip_codigo,tar_lis_codigo,tar_est_codigo;
+
+select tareas.tar_codigo,tareas.tar_nombre,tareas.tar_gru_codigo,tareas.tar_tip_codigo,tareas.tar_lis_codigo,tareas.tar_est_codigo from tareas
+
+return mysql_query("insert into tareas(tar_codigo,tar_nombre,tar_gru_codigo,tar_tip_codigo,tar_lis_codigo,tar_est_codigo)values('".$datos[0]."','".$datos[1]."','".$datos[2]."','".$datos[3]."','".$datos[4]."','".$datos[5]."')");
