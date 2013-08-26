@@ -1,0 +1,3 @@
+SELECT lis_codigo, lis_nombre
+FROM `listas`
+ORDER BY lis_codigo DESC
