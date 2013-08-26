@@ -1,0 +1,4 @@
+SELECT tar_nombre, count(*)
+FROM tareas
+GROUP BY tar_nombre
+HAVING count(*) > 1;
