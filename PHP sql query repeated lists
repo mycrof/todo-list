@@ -1,0 +1,43 @@
+
+<?php
+
+
+//CARGAR ENLACE A BASE DE DATOS  include('abre_db.php');
+
+// Configurar las  lineas siguientes
+
+$nombre = $_POST["lis_nombre"];
+
+
+// Inicio de validacion
+
+// Fin de la validacion
+
+// Comprobamos si el NOMBRE DE LISTa esta registrado
+
+$nueva_lista=mysql_query("select nombre from $listas where nombre='$lis_nombre'");
+if(mysql_num_rows($nueva_lista)>0)
+{
+echo "
+<p class='avisos'>El nombre de lista ya esta registrado</p>
+<p class='avisos'><a href='javascript:history.go(-1)' class='clase1'>Volver atrás</a></p>
+";
+}
+// ------------ Si no esta registrado el usuario continua el script
+
+else
+{
+$result = mysql_db_query("$todo_list","insert into $listas (lis_nombre) values ('$lis_nombre')"); 
+
+include('cierra_db.php');
+
+// Confirmamos que el registro ha sido insertado con exito
+
+echo "
+<p class='avisos'>Registro insertado con exito</p>
+<p class='avisos'><a href='javascript:history.go(-1)' class='clase1'>Volver atrás</a></p>
+";
+} 
+// ==============================================
+} 
+?> 
