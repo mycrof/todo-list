@@ -1,0 +1,4 @@
+SELECT lis_nombre, count(*)
+FROM listas
+GROUP BY lis_nombre
+HAVING count(*) > 1;
