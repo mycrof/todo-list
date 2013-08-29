@@ -18,16 +18,22 @@ class tareas{
 	
 	
 		function agregar_tarea($datos){
-		if($this->con->abrir()==true)
+		if($this->con->abrir()==true){
 			return mysql_query("INSERT INTO tareas( tar_nombre, tar_gru_codigo, tar_tip_codigo, tar_lis_codigo, tar_est_codigo) VALUES('".$datos['0']."','".$datos['1']."','".$datos['2']."','".$datos['3']."','".$datos['4']."')");
 				
 			$this->con->cerrar();
 	}
 
-	
 	}
 
 	
+	function modificar($datos,$id){
+	if ($this->con->abrir()==true){
+		//Método que permita modificar pero falta cambiar los nombres a las variables si es necesario 
+		return mysql_query("UPDATE tareas SET tar_nombre='".$datos[0]."' WHERE tar_codigo=".$id);
+	}
+	}
 	
-	
+
+}
 	?>
