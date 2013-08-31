@@ -1,0 +1,36 @@
+<?php
+if(isset($_POST['Actualizar'])){
+	require('clases/tareas.class.php');
+	$objtareas=new tareas;
+	$tar_nombre = $_POST['txt2'];
+	if ( $objtareas->modificar(array($tar_nombre),$tar_codigo)== true){
+		echo 'Datos Actualizados Correctamente';
+		echo'<a href="tareas.php">Volver</a>';
+	}else{
+		echo 'Se produjo un error. Intente nuevamente';
+		
+	} 
+
+
+}
+?>
+
+
+
+<form method="post" action="agregar_tareas.php">
+<table width="257" border="0" align="center">
+  <tr>
+    <th width="251" height="44"><span class="Estilo1">actualiza Tus Datos </span></th>
+  </tr>
+  <tr>
+    <td height="43"><p align="center" class="Estilo6">Nombre:
+      <input name="txt2" type="text" id="txt2" value="<?php echo $fila['tar_nombre']?>">
+      </p>      </td>
+  </tr>
+  <tr>
+    <td height="39"><div align="center">
+      <input type="submit" name="actualizar"  id="actualizar" onclick="validar">
+    </div></td>
+  </tr>
+</table>
+</form
