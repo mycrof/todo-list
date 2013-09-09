@@ -1,0 +1,42 @@
+function consultaTareas($linkDB,$lis_codigo){
+	$estadoTipo = array("Activa" => "btn-success",
+						"Inactiva" => "btn-info",
+						"Finalizada" => "btn-inverse");
+
+	$salida2 = ''; //variable que contendra el resultado de la consulta y que sera devuelta al index
+
+	$consulta2 = $linkDB -> query("SELECT tar_codigo, tar_est_codigo, tar_lis_codigo, tar_nombre,tar_dis_codigo, est_nombre FROM tareas, estados 
+		WHERE tar_lis_codigo=".$lis_codigo." AND est_codigo = tar_est_codigo AND tar_dis_codigo=1 ORDER BY tar_codigo ASC");
+
+// VERIFICA QUE LA CONSULTA DEVUELVA FILAS
+	if($consulta2 -> num_rows != 0){  //pregunta si hay registros en la base de datos
+		
+		//convierte la informacion resultante de la consulta
+		while($listadoOK2 = $consulta2 -> fetch_assoc())
+			//si encuentra informacion la prepara para mostrarla
+		{
+			$salida2 .= '
+				<tr>
+								
+								<td><a data-accion="volcar" id="'.$listadoOK2['tar_lis_codigo'].'" href="'.$listadoOK2['tar_codigo'].'" class="btn  '.$estadoTipo[$listadoOK2['est_nombre']].' cd">'.$listadoOK2['est_nombre'].'</a></td>
+								<td ><a class="btn btn-large btn-block btn-primary">'.$listadoOK2['tar_nombre'].'</a></td>
+								<td class="centerTXT"><a id="maestro" data-accion="editar" class="btn btn-primary btn-success cd" href="'.$listadoOK2['tar_codigo'].'">Editar</a>
+								</td>
+								<td><a data-accion="eliminar"class="btn btn-primary btn-danger cd" href="'.$listadoOK2['tar_codigo'].'">Eliminar</a></td>
+								<td > <a id="cueck" data-accion="c_d" type="btn btn-primary" href="'.$listadoOK2['tar_lis_codigo'].'" > </a></td>
+							</tr> 
+			';
+		}
+
+	}
+	//si no encuentra registros despliega un aviso
+	else{
+		$salida2 = '
+			<tr id="sinDatos2">
+				<td colspan="5" class="centerTXT">Esta Lista no contiene Tareas</td>
+	   		</tr>
+		';
+	}
+
+	return $salida2;
+}
