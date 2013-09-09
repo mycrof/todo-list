@@ -1,0 +1,23 @@
+function listacompleta ($lis_codigo){
+$linkDB = new mysqli(server, user, pass, mainDataBase);
+$estadoTipo = array("Activa" => "btn-success",
+						"Inactiva" => "btn-info",
+						"Finalizada" => "btn-inverse");
+
+$total=$linkDB-> query("SELECT COUNT(*) FROM tareas WHERE tar_dis_codigo !=0 AND tar_lis_codigo=".$lis_codigo."");
+$completas=$linkDB-> query("SELECT COUNT(*) FROM tareas  WHERE tar_lis_codigo=".$lis_codigo." and tar_est_codigo='2' 
+							AND tar_dis_codigo !=0");
+$var1=$total->fetch_array();
+$var2=$completas->fetch_array();
+
+
+
+        if ($var1[0]==$var2[0] && $var1[0]!=0 ){
+		 
+		 return "<span class='btn btn-inverse'>   Finalizada   </span>";
+		 
+		 }
+		 else{
+		 return "<span class='btn btn-info'>Pendiente</span>";
+		 	}
+}
