@@ -1,0 +1,1 @@
+"UPDATE tareas SET tar_dis_codigo=0 WHERE tar_codigo=%d LIMIT 1", $_POST['tar_codigo']
