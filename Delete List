@@ -1,0 +1,48 @@
+$('#dialog-borrar1').dialog({
+			autoOpen: false,
+			modal:true,
+			width:350,
+			height:'auto',
+			resizable: false,
+			buttons: {
+				Si: function() {
+					$.ajax({
+
+		            beforeSend: function(){
+		            	 
+		                
+		            },
+		            cache: false,
+		            type: "POST",
+		            dataType: "json",
+		            url:"incluir/manipulacionSQL_Listas.php",
+		            data:"accion=" + accion2 + "&lis_codigo=" +codigo + "&id=" + Math.random(),
+		            success: function(response){
+
+		            	// Validar mensaje de error
+		            	if(response.respuesta == false){
+		            		alert(response.mensaje);
+		            	}
+		            	else{
+
+		            		// si es exitosa la operación
+		                	$('#dialog-borrar1').dialog('close');
+
+		                	$('#ListadosOK').empty();
+		                	
+		                	$('#ListadosOK').append(response.contenido);
+
+						}
+
+		            },	
+		            error:function(){
+		                alert('ERROR GENERAL DEL SISTEMA, INTENTE MAS TARDE');
+		            }
+		        });	
+				},
+				No: function() {
+					$( this ).dialog( "close" );
+					
+				}
+			}
+		});
