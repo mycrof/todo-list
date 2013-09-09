@@ -1,0 +1,4 @@
+("UPDATE listas SET lis_dis_codigo=0 WHERE lis_codigo=%d LIMIT 1",  $_POST['lis_codigo']);    // sprintf formatea una cadena para que todo sea texto, %s indica qu lo que se va a insertar es texto
+											
+
+					
