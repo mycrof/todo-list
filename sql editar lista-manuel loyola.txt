@@ -1,0 +1,3 @@
+"UPDATE listas SET lis_nombre='%s' WHERE lis_codigo=%d LIMIT 1", $_POST['lis_nombre'],$_POST['lis_codigo']);
+
+					/
