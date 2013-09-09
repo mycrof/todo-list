@@ -1,0 +1,1 @@
+"INSERT INTO listas SET lis_nombre='%s'",$_POST['lis_nombre']

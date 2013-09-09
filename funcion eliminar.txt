@@ -1,0 +1,15 @@
+case 'eliminar':
+							$query = sprintf( );
+							//validar actualizacion
+							if($mysqli -> affected_rows == 1){ //pregunta si hubo una fila afectada por la consulta
+								$respuestaOK2 = true;
+								$mensajeError2 = 'Registro actualizado exitosamente';
+
+								$contenidoOK2 = consultaTareas($mysqli,$_POST['tar_lis_codigo2']);  //llama a la funcion inicial para que recarge toda la pagina con la nueva  actualizacion
+
+							}
+							else{
+									$mensajeError2 = 'No se ha podido actualizar el registro';
+								}
+				
+			break;

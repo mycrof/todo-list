@@ -1,0 +1,28 @@
+case 'agrLista':
+							$query = sprintf( )
+							$resultadoQuery = $mysqli -> query($query);
+							// Se rescata el index de la isercion para formar el mensaje y la edición del registro
+							$id_listaOK = $mysqli -> insert_id;
+
+							if($resultadoQuery == true){
+									$respuestaOK = true;
+									$mensajeError = "Se ha agregado el registro correctamente";
+									$codigo=$id_listaOK;
+
+									
+
+									$contenidoOK = '
+													<tr>
+														<td><span class="btn btn-info">Pendiente</span></td>
+														<td ><a class="btn btn-large btn-block btn-primary">'.$_POST['lis_nombre'].'</td>
+														<td class="centerTXT"><a class="btn btn-primary btn-success xc" href="'.$id_listaOK.'">Editar</a></td>
+														<td class="centerTXT"><a class="btn btn-primary btn-danger" href="'.$id_listaOK.'">Eliminar</a></td>
+													<tr>
+												';
+
+				}
+				else{
+					$mensajeError = "No se puede guardar el registro en la base de datos";
+				}
+				
+			break;
