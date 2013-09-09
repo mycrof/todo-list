@@ -1,0 +1,52 @@
+/ Validar Formulario
+		$('#formSeleccion').validate({
+		    submitHandler: function(){  //detecta cuando se va a hacer un submit
+		        
+		        var str = $('#formSeleccion').serialize(); ///serializa las variables que no cumplen con el criterio, en este caso solo hay una
+
+		        //alert(str);
+
+		         $.ajax({
+		            beforeSend: function(){
+		                $('#formSeleccion.ajaxLoader').show();
+		            },
+		            cache: false,
+		            type: "POST",
+		            dataType: "json",
+		            url:"incluir/manipulacionSQL_Tareas.php",
+		            data:"accion2=" + accion2_ok +"&"+ str + "&id="+ Math.random(),
+		            success: function(response){
+		            	
+		            	if(response.respuesta==false){
+		            		alert(response.mensaje);
+
+
+		            	}
+		            	else{
+		            		// si es exitosa la operación
+		                	$('#formSeleccion').dialog('close');
+		               		$('#Listados2').empty();
+		                	
+		                	$('#Listados2').append(response.contenido);
+               	         	}
+
+
+							$('#formSeleccion .ajaxLoader').hide();
+		            	
+		            	
+
+
+		            },
+		            error:function(){
+		                alert('ERROR GENERAL DEL SISTEMA, INTENTE MAS TARDE');
+		                
+		            }
+		        });
+
+		        return false;
+
+		    },
+		    errorPlacement: function(error, element) {
+		        error.appendTo(element.prev("span").append());
+		    }
+		});
