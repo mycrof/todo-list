@@ -1,0 +1,49 @@
+$('#agregarTarea').dialog({
+			autoOpen: false,
+			modal:true,
+			width:305,
+			height:'auto',
+			resizable: false,
+			close:function(){
+				$('#formTarea fieldset > span').removeClass('error').empty(); 
+				$('#formTarea input[type="text"]').val(''); 
+				$('#tar_codigo').val('0');
+		    	
+			}
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(accion2_ok =='editar'){
+
+				//valor de la accion
+				$('#accion2').val('editTarea');
+
+				//Id tarea
+				
+
+				//alert($('#cueck').attr('href'));			
+				
+				//lenar el formularuio con los datos de la lista seleccionada
+				$('#tar_codigo2').val(id_ok); 
+				$('#tar_nombre').val($(this).parent().parent().children('td:eq(1)').text()); 
+				tar_codigo=id_ok;
+			//	alert(tar_codigo);
+				//abrir el formulario
+				$('#agregarTarea').dialog({ 
+					title:'Editar Tarea', //cambia el titulo del formulario
+					autoOpen:true
+
+				});
+			}
