@@ -1,0 +1,31 @@
+case 'agrTarea':
+							$query = sprintf( );
+
+					//ejecutar la consulta
+							$resultadoQuery2 = $mysqli -> query($query);
+							// Se rescata el index de la isercion para formar el mensaje y la edición del registro
+							$id_tareaOK = $mysqli -> insert_id;
+
+							if($resultadoQuery2 == true){
+									$respuestaOK2 = true;
+									$mensajeError2 = "Se ha agregado el registro correctamente";
+									$codigo2=$id_tareaOK;
+
+									
+
+									$contenidoOK2 = '
+													<tr>
+														<td><a class="btn "bbtn-info" ">Inactiva</a></td>
+														<td> <a class="btn btn-large btn-block btn-primary">'.$_POST['tar_nombre'].'</a></td>
+														<td class="centerTXT"><a data-accion="editar" class="btn btn-primary btn-success cd" href="'.$listadoOK2['tar_codigo'].'">Editar</a> </td>
+														<td class="centerTXT"> <a data-accion="eliminar"class="btn btn-primary btn-danger cd" href="'.$listadoOK2['tar_codigo'].'">Eliminar</a></td>
+														<td > <a id="cueck" data-accion="c_d" type="hidden" href="'.$id_tareaOK.'" > </a></td>
+													<tr>
+												';
+
+				}
+				else{
+					$mensajeError2 = "No se puede guardar el registro en la base de datos";
+				}
+				
+			break;
