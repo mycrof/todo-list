@@ -1,0 +1,64 @@
+else if($(this).attr('data-accion')=='eliminar'){
+				//$('#tar_lis_codigo2').val($('#cueck').attr('href'));
+				cd_lista= $ ('#cueck').attr('href');
+				//alert(cd_lista);
+				//$c_lista.val($('#cueck').attr('href'));
+				//alert($c_lista);
+				$('#dialog-borrar').dialog('open');
+
+				
+
+
+			} 
+
+
+
+
+$('#dialog-borrar').dialog({
+			autoOpen: false,
+			modal:true,
+			width:350,
+			height:'auto',
+			resizable: false,
+			buttons: {
+				Si: function() {
+					$.ajax({
+
+		            beforeSend: function(){
+		            	 
+		                
+		            },
+		            cache: false,
+		            type: "POST",
+		            dataType: "json",
+		            url:"incluir/manipulacionSQL_Tareas.php",
+		            data:"accion2=" + accion2_ok + "&tar_codigo=" + id_ok  +"&tar_lis_codigo2="+ cd_lista + "&id=" + Math.random(),
+		            success: function(response){
+
+		            	// Validar mensaje de error
+		            	if(response.respuesta == false){
+		            		alert(response.mensaje);
+		            	}
+		            	else{
+
+		            		// si es exitosa la operación
+		                	$('#dialog-borrar').dialog('close');
+
+		                	$('#Listados2').empty();
+		                	
+		                	$('#Listados2').append(response.contenido);
+
+						}
+
+		            },
+		            error:function(){
+		                alert('ERROR GENERAL DEL SISTEMA, INTENTE MAS TARDE');
+		            }
+		        });	
+				},
+				No: function() {
+					$( this ).dialog( "close" );
+					
+				}
+			}
+		});
